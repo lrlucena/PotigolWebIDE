@@ -1,17 +1,28 @@
-const antlr4 = antlr4_require('antlr4/index');
-//antlr4.tree.ParseTreeWalker.DEFAULT.walk(loader, tree); 
-class listenerData {
+class ListenerData {
   constructor() {
-    this.values = new Map();
-    this.warnings = [];
-    this.errors = [];
+    this.cleanData()
   }
   setValue(node, value){
     this.values.set(node,value);
   }
   getValue(node){
-      return this.values.get(node);
+    return this.values.get(node);
+  }
+  setAmbiente(name, value){
+    this.ambiente.set(name,value);
+  }
+  getAmbiente(name){
+    return this.ambiente.get(name);
+  }
+  cleanData(){
+    this.warnings = [];
+    this.errors = [];
+    this.ambiente = new Map();
+    this.values = new Map();
+  }
+  getAllAmbiente(){
+    return this.ambiente;
   }
 }
 
-exports.listenerData = listenerData;
+listenerData = new ListenerData();

@@ -1,10 +1,11 @@
-const antlr4 = antlr4_require('antlr4/index');
-class listenerUtils {
+class ListenerUtils {
   constructor() {
   }
   show(mensagem){
-    console.log(mensagem);
+    terminal.echo(mensagem);
+  }
+  error(mensagem){
+    terminal.error(mensagem);
   }
 }
-
-exports.listenerUtils = listenerUtils;
+listenerUtils = new ListenerUtils();
